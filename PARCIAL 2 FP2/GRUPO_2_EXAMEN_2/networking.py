@@ -23,12 +23,17 @@ class InterestGroup(ContainerBase):
             return False
         new_node = self.Node(name, self.first)
         self.first = new_node
-        self._size += 1
+        # self._size += 1
         return True
     
     @property
     def size(self):
-        return self._size
+        tamaño = 0
+        actual = self.first
+        while actual:
+            tamaño += 1
+            actual = actual.next
+        return tamaño
     
     def union(self, other_group):
         new_group = InterestGroup()
@@ -48,14 +53,14 @@ class InterestGroup(ContainerBase):
         
         if self.first.value == name:
             self.first = self.first.next
-            self._size -= 1
+            # self._size -= 1
             return True
         
         current = self.first
         while current.next is not None:
             if current.next.value == name:
                 current.next = current.next.next
-                self._size -= 1
+                # self._size -= 1
                 return True
             current = current.next
         return False

@@ -62,7 +62,6 @@ class CheckoutQueue(ContainerBase):
         while actual:
             if contador % 2 == 1: # Impares
                 nueva_cola.enqueue(actual.value)
-                
                 # Borra el nodo actual de la cola original
                 if anterior:
                     anterior.next = actual.next
@@ -71,7 +70,6 @@ class CheckoutQueue(ContainerBase):
                 # Si actual es ultimo, actualizamos
                 #if actual == self.last:
                 #    self.last = anterior
-                
                 self._size -= 1
                 actual = actual.next  # Avanzamos a siguiente nodo
             else:
